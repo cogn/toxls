@@ -1,0 +1,9 @@
+class Emp < ActiveRecord::Base
+  attr_accessible :first_name, :last_name
+  has_one :email
+
+  def full_name
+  	"#{self.first_name} #{self.last_name}"  	
+  end
+
+end

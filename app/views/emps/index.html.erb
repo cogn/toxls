@@ -1,0 +1,26 @@
+<h1>Listing emps</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @emps.each do |emp| %>
+  <tr>
+    <td><%= emp.first_name %></td>
+    <td><%= emp.last_name %></td>
+    <td><%= link_to 'Show', emp %></td>
+    <td><%= link_to 'Edit', edit_emp_path(emp) %></td>
+    <td><%= link_to 'Destroy', emp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Emp', new_emp_path %>
+<%= link_to 'Export Emp Details', export_emp_details_path(:format => 'xls') %>
