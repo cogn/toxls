@@ -9,6 +9,7 @@ Installation and Configuration
 Add to_xls gem in your Gemfile after that execute bundle install command.
 
 add below to RAILS_ROOT/config/initializers/mime_types.rb
+
 Mime::Type.register_alias "text/excel", :xls
 
 Usage
