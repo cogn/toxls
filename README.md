@@ -10,24 +10,36 @@ Add to_xls gem in your Gemfile after that execute bundle install command.
 
 add below to RAILS_ROOT/config/initializers/mime_types.rb
 
-Mime::Type.register_alias "text/excel", :xls
+*Mime::Type.register_alias "text/excel", :xls*
 
 Usage
 =====
 
 routes file
-	match 'export_emp_details' => "emps#export_emp_details", :as => "export_emp_details"  
+
+```
+	match 'export_emp_details' => "emps#export_emp_details", :as => "export_emp_details"
+``` 	
+
 Emp model {first_name , last_name)
+
+```
 	def full_name
   		"#{self.first_name} #{self.last_name}"  	
   	end
+```
 
 Email model {emp_id # relation, email_name}
+
+```
 	def email_name
   		self.email
   	end
+```
 
 Emp Controller
+
+```
 	def export_emp_details
 	    @emps = Emp.all
 	    respond_to do |format|      
@@ -36,6 +48,10 @@ Emp Controller
 	      }      
 	    end    
   	end
+```
 
 View#index
+
+```
 	<%= link_to 'Export Emp Details', export_emp_details_path(:format => 'xls') %>
+```
